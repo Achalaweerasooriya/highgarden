@@ -58,8 +58,8 @@ const CONTENT = {
       prefilled: env("VITE_WHATSAPP_TEXT", ENV_DEFAULTS.WHATSAPP_TEXT),
     },
     contact: {
-      phone: "+94 77 000 0000",
-      email: "stay@highgardenhideaway.com",
+      phone: "+94 71 417 0430",
+      email: "highgardenhideaway@gmail.com",
       address: "Kandy & Gampola, Sri Lanka",
     },
     socials: {
@@ -82,9 +82,9 @@ const CONTENT = {
         placeQuery: "Highgarden Hideaway Bungalow Peradeniya",
       },
       highlights: [
-        "3 ensuite bedrooms",
+        "4 bedrooms",
         "Garden-view veranda",
-        "Chef-on-call",
+        "Breakfast on request",
         "5 min to Botanical Gardens",
       ],
       gallery: {
