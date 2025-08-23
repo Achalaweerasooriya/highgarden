@@ -197,6 +197,8 @@ function injectHeadAssets() {
     faviconUrl ||
     "https://res.cloudinary.com/dfdmoekv7/image/upload/v1755972505/HHlogo_huumul.jpg";
   document.head.append(preconnect1, preconnect2, fonts, linkIcon);
+  <link rel="preload" as="image" href="https://res.cloudinary.com/…/f_auto,q_auto,w_1600/hero.jpg" />
+
 }
 
 function useMediumPosts({ feedUrl, rssToJson, max = 6 }) {
@@ -288,7 +290,11 @@ function Nav() {
     <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/70 border-b border-white/10 font-['Inter']">
       <nav className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4 md:px-8">
         <a href="#home" className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full" style={goldGrad(45)} />
+          <img
+            src="https://res.cloudinary.com/dfdmoekv7/image/upload/v1755972505/HHlogo_huumul.jpg"
+            alt="Highgarden Hideaway Logo"
+            className="w-8 h-8 rounded-full object-cover"
+          />
           <div className="font-semibold tracking-wide" style={{ color: CONTENT.brand.colors.text }}>
             {CONTENT.brand.groupName}
           </div>
