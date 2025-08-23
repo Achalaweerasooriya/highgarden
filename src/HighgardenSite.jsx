@@ -354,9 +354,10 @@ function About() {
         {CONTENT.properties.map((p) => (
           <motion.div key={p.key} whileHover={{ y: -4 }} className="rounded-2xl overflow-hidden border border-white/10 bg-black/40">
             <div className="aspect-video bg-black/60 flex items-center justify-center">
-              {p.gallery(0) ? (
+              {p.gallery.images?.length > 0 ? (
                 <img
-                  src={p.gallery(0)}
+                  src={p.gallery.images[0]}
+                  alt={p.name}
                   className="w-full h-full object-cover"
                 />
               ) : (
