@@ -354,7 +354,14 @@ function About() {
         {CONTENT.properties.map((p) => (
           <motion.div key={p.key} whileHover={{ y: -4 }} className="rounded-2xl overflow-hidden border border-white/10 bg-black/40">
             <div className="aspect-video bg-black/60 flex items-center justify-center">
-              <ImageIcon className="opacity-40" />
+              {p.gallery(0) ? (
+                <img
+                  src={p.gallery(0)}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <ImageIcon className="opacity-40" />
+              )}
             </div>
             <div className="p-5">
               <h3 className="text-xl font-bold font-['Playfair Display']" style={{ color: CONTENT.brand.colors.text }}>
