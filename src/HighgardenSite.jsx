@@ -68,6 +68,12 @@ const CONTENT = {
     },
   },
 
+  heroImages: [
+  "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610746/Garden_3_vms6lk.jpg",
+  "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610526/Family_Room_1_whnqwx.png",
+  "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610709/Family_Room_5_igyrdh.png",
+],
+
   properties: [
     {
       key: "peradeniya",
@@ -311,30 +317,57 @@ function Nav() {
 }
 
 function Hero() {
+  const [index, setIndex] = useState(0);
+
+  // cycle through hero images every 5s
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % CONTENT.heroImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section id="home" className="relative overflow-hidden" style={{ background: CONTENT.brand.colors.background }}>
-      <div className="absolute inset-0 opacity-20" style={goldGrad(45)} />
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-24 md:py-36 relative">
+    <section id="home" className="relative overflow-hidden h-[90vh] flex items-center">
+      {/* Carousel images */}
+      <div className="absolute inset-0">
+        {CONTENT.heroImages.map((img, i) => (
+          <motion.img
+            key={i}
+            src={img}
+            alt={`Hero ${i}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: i === index ? 1 : 0 }}
+            transition={{ duration: 1.2 }}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ))}
+        {/* Dark overlay to make text visible */}
+        <div className="absolute inset-0 bg-black/50" />
+      </div>
+
+      {/* Hero text */}
+      <div className="relative max-w-7xl mx-auto px-4 md:px-8 z-10">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-black leading-tight font-['Playfair Display']"
-          style={{ color: CONTENT.brand.colors.text }}
+          className="text-4xl md:text-6xl font-black leading-tight font-['Playfair Display'] text-white"
         >
           {CONTENT.brand.groupName}
           <span className="block text-lg md:text-2xl mt-3 font-normal opacity-80 font-['Inter']">
             {CONTENT.brand.tagline}
           </span>
         </motion.h1>
+
+        {/* CTA buttons */}
         <div className="mt-8 flex flex-wrap gap-3">
           {CONTENT.properties.map((p) => (
             <a
               key={p.key}
               href={p.bookingLink}
               target="_blank"
-              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold border border-white/20 hover:border-white/40 transition font-['Inter']"
-              style={{ color: CONTENT.brand.colors.text }}
+              className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold border border-white/20 hover:border-white/40 transition font-['Inter'] text-white"
             >
               <Hotel size={16} /> Book {p.name}
               <ExternalLink size={14} />
@@ -342,10 +375,10 @@ function Hero() {
           ))}
         </div>
       </div>
-      <div className="absolute -bottom-32 right-0 left-0 h-64 blur-3xl opacity-40" style={goldGrad(0)} />
     </section>
   );
 }
+
 
 function About() {
   return (
