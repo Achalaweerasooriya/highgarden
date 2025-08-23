@@ -94,7 +94,7 @@ const CONTENT = {
           "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610514/Family_Room_3_e6zjue.png",
           "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610709/Family_Room_5_igyrdh.png",
         ],
-        videos: ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
+        videos: ["https://www.youtube.com/watch?v=eqkBdAA7Oog"],
       },
     },
     {
@@ -121,7 +121,7 @@ const CONTENT = {
           "https://res.cloudinary.com/demo/image/upload/v1690000000/highgarden/gampola-2.jpg",
           "https://res.cloudinary.com/demo/image/upload/v1690000000/highgarden/gampola-3.jpg",
         ],
-        videos: ["https://www.youtube.com/watch?v=ysz5S6PUM-U"],
+        videos: ["https://www.youtube.com/watch?v=Y7RAX1wOuTQ"],
       },
     },
   ],
@@ -132,9 +132,9 @@ const CONTENT = {
   },
 
   travelVideos: [
-    "https://youtu.be/1-XNJVgYwes?feature=shared",
-    "https://youtu.be/3EPtWFwpmk8?feature=shared",
-    "https://youtu.be/_5Do3KevmM8?feature=shared",
+    "https://www.youtube.com/watch?v=1-XNJVgYwes",
+    "https://www.youtube.com/watch?v=3EPtWFwpmk8",
+    "https://www.youtube.com/watch?v=_5Do3KevmM8",
   ],
 
   blogs: {
@@ -354,7 +354,7 @@ function About() {
         {CONTENT.properties.map((p) => (
           <motion.div key={p.key} whileHover={{ y: -4 }} className="rounded-2xl overflow-hidden border border-white/10 bg-black/40">
             <div className="aspect-video bg-black/60 flex items-center justify-center">
-              <ImageIcon className="opacity-40" />
+              <ImageIcon className="opacity-40" href={p.gallery(0)}/>
             </div>
             <div className="p-5">
               <h3 className="text-xl font-bold font-['Playfair Display']" style={{ color: CONTENT.brand.colors.text }}>
