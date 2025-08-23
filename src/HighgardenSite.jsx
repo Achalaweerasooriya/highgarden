@@ -32,13 +32,13 @@ const env = (key, fallback = "") => (E && E[key] !== undefined && E[key] !== "" 
 
 // Dummy but sensible defaults you can override via .env
 const ENV_DEFAULTS = {
-  MEDIUM_FEED_URL: "https://medium.com/feed/@yourMediumHandle",
+  MEDIUM_FEED_URL: "https://medium.com/@highgardenhideaway",
   PERADENIYA_PLACE_ID: "DUMMY_PLACE_ID_PERADENIYA",
   GAMPOLA_PLACE_ID: "DUMMY_PLACE_ID_GAMPOLA",
-  WHATSAPP_PHONE: "+94770000000",
+  WHATSAPP_PHONE: "+94714170430",
   WHATSAPP_TEXT: "Hello! I'd like to check availability at Highgarden Hideaway.",
-  OG_IMAGE: "https://res.cloudinary.com/demo/image/upload/v1690000000/highgarden/og-image.jpg",
-  FAVICON_URL: "",
+  OG_IMAGE: "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610749/Garden_4_miy2nf.jpg",
+  FAVICON_URL: "https://res.cloudinary.com/dfdmoekv7/image/upload/v1755972505/HHlogo_huumul.jpg",
 };
 
 // =============== CONTENT (EDIT ME OR USE ENV) ===============
@@ -63,8 +63,8 @@ const CONTENT = {
       address: "Kandy & Gampola, Sri Lanka",
     },
     socials: {
-      instagram: "https://instagram.com/yourhandle",
-      facebook: "https://facebook.com/yourpage",
+      instagram: "https://www.instagram.com/highgarden_hideaway?igsh=aWZ4Z3MydHIzamh4",
+      facebook: "https://www.facebook.com/share/19K6bnQEx1/",
     },
   },
 
@@ -83,15 +83,16 @@ const CONTENT = {
       },
       highlights: [
         "4 bedrooms",
-        "Garden-view veranda",
+        "Garden-view | Veranda",
         "Breakfast on request",
         "5 min to Botanical Gardens",
       ],
       gallery: {
         images: [
-          "https://res.cloudinary.com/demo/image/upload/v1690000000/highgarden/peradeniya-1.jpg",
-          "https://res.cloudinary.com/demo/image/upload/v1690000000/highgarden/peradeniya-2.jpg",
-          "https://res.cloudinary.com/demo/image/upload/v1690000000/highgarden/peradeniya-3.jpg",
+          "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610746/Garden_3_vms6lk.jpg",
+          "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610526/Family_Room_1_whnqwx.png",
+          "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610514/Family_Room_3_e6zjue.png",
+          "https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610709/Family_Room_5_igyrdh.png",
         ],
         videos: ["https://www.youtube.com/watch?v=dQw4w9WgXcQ"],
       },
@@ -110,8 +111,8 @@ const CONTENT = {
       },
       highlights: [
         "3 master suites",
-        "Infinity-edge splash pool",
-        "BBQ & outdoor dining",
+        "Scenic Views of mountains",
+        "Garden areas",
         "Tea trails nearby",
       ],
       gallery: {
@@ -131,9 +132,9 @@ const CONTENT = {
   },
 
   travelVideos: [
-    "https://www.youtube.com/watch?v=3Z9wZ0hBq3c",
-    "https://www.youtube.com/watch?v=4xDzrJKXOOY",
-    "https://www.youtube.com/watch?v=zvCpVYQ-2lI",
+    "https://youtu.be/1-XNJVgYwes?feature=shared",
+    "https://youtu.be/3EPtWFwpmk8?feature=shared",
+    "https://youtu.be/_5Do3KevmM8?feature=shared",
   ],
 
   blogs: {
@@ -188,7 +189,7 @@ function injectHeadAssets() {
   linkIcon.rel = "icon";
   linkIcon.href =
     faviconUrl ||
-    "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='28' fill='%23D4AF37'/><text x='32' y='39' font-size='26' text-anchor='middle' fill='%230b0b0b' font-family='Arial'>H</text></svg>";
+    "https://res.cloudinary.com/dfdmoekv7/image/upload/v1755972505/HHlogo_huumul.jpg";
   document.head.append(preconnect1, preconnect2, fonts, linkIcon);
 }
 
