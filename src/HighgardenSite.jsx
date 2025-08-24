@@ -579,17 +579,9 @@ function useMediumPosts({ max = 6 }) {
       try {
         const res = await fetch("/api/medium");
         const data = await res.json();
-        const items = data?.items || [];
-        const cleaned = items.slice(0, max).map((x) => ({
-          title: x.title,
-          link: x.link,
-          pubDate: x.pubDate,
-          thumbnail: x.thumbnail,
-          author: x.author,
-        }));
-        setPosts(cleaned);
-      } catch (err) {
-        console.error("Medium fetch failed:", err);
+        setPosts(data.items.slice(0, max));
+      } catch (e) {
+        console.error("Failed to fetch Medium posts", e);
         setPosts([]);
       } finally {
         setLoading(false);
@@ -600,6 +592,7 @@ function useMediumPosts({ max = 6 }) {
 
   return { posts, loading };
 }
+
 
 function Reviews() {
   const r1 = useServerReviews({ placeId: CONTENT.google.placeIds.peradeniya, limit: CONTENT.google.reviewsToShow });
