@@ -32,7 +32,7 @@ const optimize = (url, w = 1200) =>
 
 // Dummy but sensible defaults
 const ENV_DEFAULTS = {
-  MEDIUM_FEED_URL: "https://medium.com/@highgardenhideaway",
+  MEDIUM_FEED_URL: "https://medium.com/feed/@highgardenhideaway",
   PERADENIYA_PLACE_ID: "DUMMY_PLACE_ID_PERADENIYA",
   GAMPOLA_PLACE_ID: "DUMMY_PLACE_ID_GAMPOLA",
   WHATSAPP_PHONE: "+94714170430",
