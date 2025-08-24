@@ -570,18 +570,15 @@ function TravelMarquee() {
   );
 }
 
-function useMediumPosts({ feedUrl, rssToJson, max = 6 }) {
+function useMediumPosts({ max = 6 }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    if (!feedUrl) {
-      setLoading(false);
-      return;
-    }
-    const url = "/api/medium";
-    fetch(url)
-      .then((r) => r.json())
-      .then((data) => {
+    async function load() {
+      try {
+        const res = await fetch("/api/medium");
+        const data = await res.json();
         const items = data?.items || [];
         const cleaned = items.slice(0, max).map((x) => ({
           title: x.title,
@@ -591,10 +588,16 @@ function useMediumPosts({ feedUrl, rssToJson, max = 6 }) {
           author: x.author,
         }));
         setPosts(cleaned);
-      })
-      .catch(() => setPosts([]))
-      .finally(() => setLoading(false));
-  }, [feedUrl, rssToJson, max]);
+      } catch (err) {
+        console.error("Medium fetch failed:", err);
+        setPosts([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, [max]);
+
   return { posts, loading };
 }
 
