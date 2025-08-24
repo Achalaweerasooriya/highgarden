@@ -578,7 +578,7 @@ function useMediumPosts({ feedUrl, rssToJson, max = 6 }) {
       setLoading(false);
       return;
     }
-    const url = `${rssToJson}${encodeURIComponent(feedUrl)}`;
+    const url = "/api/medium";
     fetch(url)
       .then((r) => r.json())
       .then((data) => {
