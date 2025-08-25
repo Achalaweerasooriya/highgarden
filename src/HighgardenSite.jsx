@@ -66,6 +66,7 @@ const CONTENT = {
       instagram: "https://www.instagram.com/highgarden_hideaway?igsh=aWZ4Z3MydHIzamh4",
       facebook: "https://www.facebook.com/share/19K6bnQEx1/",
     },
+    logoUrl: "https://res.cloudinary.com/dfdmoekv7/image/upload/v1755972505/HHlogo_huumul.jpg",
   },
 
   heroImages: [
@@ -146,6 +147,7 @@ const goldGrad = (angle = 90) => ({
 });
 
 function injectHeadAssets() {
+  // Fonts
   const preconnect1 = document.createElement("link");
   preconnect1.rel = "preconnect";
   preconnect1.href = "https://fonts.googleapis.com";
@@ -160,9 +162,13 @@ function injectHeadAssets() {
   fonts.href =
     "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap";
 
+  // ---- Page title ----
+  document.title = `${CONTENT.brand.groupName} — ${CONTENT.brand.tagline}`;
+
+  // ---- Meta OG tags ----
   const ogImage = env("VITE_OG_IMAGE", ENV_DEFAULTS.OG_IMAGE);
   const metaOg = [
-    ["og:title", `${CONTENT.brand.groupName} — Luxury stays in Kandy & Gampola`],
+    ["og:title", `${CONTENT.brand.groupName} — ${CONTENT.brand.tagline}`],
     ["og:description", CONTENT.sriLanka.blurb],
     ["og:image", ogImage],
     ["twitter:card", "summary_large_image"],
@@ -174,19 +180,16 @@ function injectHeadAssets() {
     document.head.appendChild(m);
   });
 
-  const faviconUrl = env("VITE_FAVICON_URL", "");
+  // ---- Favicon = Logo ----
+  const faviconUrl = env("VITE_FAVICON_URL", CONTENT.brand.logoUrl || ENV_DEFAULTS.FAVICON_URL);
   const linkIcon = document.createElement("link");
   linkIcon.rel = "icon";
-  linkIcon.href = faviconUrl || ENV_DEFAULTS.FAVICON_URL;
+  linkIcon.href = faviconUrl;
 
-  // Preload first hero image
-  const preloadHero = document.createElement("link");
-  preloadHero.rel = "preload";
-  preloadHero.as = "image";
-  preloadHero.href = CONTENT.heroImages[0];
-
-  document.head.append(preconnect1, preconnect2, fonts, linkIcon, preloadHero);
+  document.head.append(preconnect1, preconnect2, fonts, linkIcon);
 }
+
+
 
 // Reusable lazy image with fade-in + optimization
 function LazyImg({ src, alt, w = 800, className = "", priority = false }) {
@@ -243,33 +246,40 @@ function Nav() {
     { label: "Blog", href: "#blog" },
     { label: "Contact", href: "#contact" },
   ];
+
   return (
     <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/40 bg-black/70 border-b border-white/10 font-['Inter']">
       <nav className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4 md:px-8">
         <a href="#home" className="flex items-center gap-3">
-          <LazyImg
-            src={ENV_DEFAULTS.FAVICON_URL}
-            alt="Highgarden Hideaway Logo"
-            w={64}
+          <img
+            src={CONTENT.brand.logoUrl}
+            alt={`${CONTENT.brand.groupName} Logo`}
             className="w-8 h-8 rounded-full object-cover"
-            priority
           />
-          <div className="font-semibold tracking-wide" style={{ color: CONTENT.brand.colors.text }}>
+          <div
+            className="font-semibold tracking-wide"
+            style={{ color: CONTENT.brand.colors.text }}
+          >
             {CONTENT.brand.groupName}
           </div>
         </a>
         <div className="hidden md:flex items-center gap-6">
           {items.map((i) => (
-            <a key={i.href} href={i.href} className="text-sm hover:opacity-80" style={{ color: CONTENT.brand.colors.text }}>
+            <a
+              key={i.href}
+              href={i.href}
+              className="text-sm hover:opacity-80"
+              style={{ color: CONTENT.brand.colors.text }}
+            >
               {i.label}
             </a>
           ))}
           <a
-            href={`https://wa.me/${CONTENT.brand.whatsapp.phoneIntl.replace(/[^\d+]/g, "")}?text=${encodeURIComponent(
-              CONTENT.brand.whatsapp.prefilled
-            )}`}
+            href={`https://wa.me/${CONTENT.brand.whatsapp.phoneIntl.replace(
+              /[^\d+]/g,
+              ""
+            )}?text=${encodeURIComponent(CONTENT.brand.whatsapp.prefilled)}`}
             target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold"
             style={{ ...goldGrad(90), color: "#0b0b0b" }}
           >
@@ -281,6 +291,7 @@ function Nav() {
     </div>
   );
 }
+
 
 function Hero() {
   const [index, setIndex] = useState(0);
