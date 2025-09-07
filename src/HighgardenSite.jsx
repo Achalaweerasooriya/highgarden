@@ -92,7 +92,7 @@ const CONTENT = {
           optimize("https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610514/Family_Room_3_e6zjue.png", 800),
           optimize("https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610709/Family_Room_5_igyrdh.png", 800),
         ],
-        videos: ["https://www.youtube.com/watch?v=eqkBdAA7Oog"],
+        videos: ["https://youtu.be/Bo4CVxwRDDs"],
       },
     },
     {
