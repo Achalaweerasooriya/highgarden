@@ -33,9 +33,9 @@ const optimize = (url, w = 1200) =>
 // Dummy but sensible defaults
 const ENV_DEFAULTS = {
   MEDIUM_FEED_URL: "https://medium.com/feed/@highgardenhideaway",
-  PERADENIYA_PLACE_ID: "DUMMY_PLACE_ID_PERADENIYA",
+  PERADENIYA_PLACE_ID: "ChIJuTgpawBp4zoRElYsto5Bsx0",
   GAMPOLA_PLACE_ID: "DUMMY_PLACE_ID_GAMPOLA",
-  WHATSAPP_PHONE: "+94714170430",
+  WHATSAPP_PHONE: "+94707955393",
   WHATSAPP_TEXT: "Hello! I'd like to check availability at Highgarden Hideaway.",
   OG_IMAGE: optimize("https://res.cloudinary.com/dfdmoekv7/image/upload/v1750610749/Garden_4_miy2nf.jpg", 1200),
   FAVICON_URL: optimize("https://res.cloudinary.com/dfdmoekv7/image/upload/v1755972505/HHlogo_huumul.jpg", 128),
@@ -58,7 +58,7 @@ const CONTENT = {
       prefilled: env("VITE_WHATSAPP_TEXT", ENV_DEFAULTS.WHATSAPP_TEXT),
     },
     contact: {
-      phone: "+94 71 417 0430",
+      phone: "+94 70 795 5393",
       email: "highgardenhideaway@gmail.com",
       address: "Kandy & Gampola, Sri Lanka",
     },
@@ -83,7 +83,7 @@ const CONTENT = {
       description:
         "A chic hillside bungalow minutes from the Royal Botanical Gardens. Minimalist interiors, veranda sunsets, and quick access to Kandy’s heritage core.",
       bookingLink: "https://www.booking.com/hotel/placeholder-bungalow.html",
-      map: { lat: 7.2715, lng: 80.592, placeQuery: "Highgarden Hideaway Bungalow Peradeniya" },
+      map: { lat: 7.2637497, lng: 80.5820072, placeQuery: "Highgarden Hideaway - Peradeniya" },
       highlights: ["4 bedrooms", "Garden-view | Veranda", "Breakfast on request", "5 min to Botanical Gardens"],
       gallery: {
         images: [
