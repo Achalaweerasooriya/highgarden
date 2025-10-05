@@ -82,7 +82,7 @@ const CONTENT = {
       short: "Peradeniya, Kandy",
       description:
         "A chic hillside bungalow minutes from the Royal Botanical Gardens. Minimalist interiors, veranda sunsets, and quick access to Kandy’s heritage core.",
-      bookingLink: "https://www.booking.com/hotel/placeholder-bungalow.html",
+      bookingLink: "https://www.booking.com/hotel/lk/highgarden-hideaway-peradeniya-b-amp-b.en-gb.html?aid=2311236&label=en-lk-booking-mobile-zy2Ou_lNW8VVtvlnG4xkegSM652796016393%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-65526620%3Alp9076000%3Ali%3Adem%3Adm-Share-WbQ78RM%401758466209&sid=f4028ca3a3b18bf4e7809b7a1dd5e175&all_sr_blocks=1497308404_421421671_2_1_0&checkin=2025-09-22&checkout=2025-09-25&dest_id=-2233329&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&highlighted_blocks=1497308404_421421671_2_1_0&hpos=1&matching_block_id=1497308404_421421671_2_1_0&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1497308404_421421671_2_1_0__3240&srepoch=1758466225&srpvid=ce3f6857de2c05a1&type=total&ucfs=1&",
       map: { lat: 7.2637497, lng: 80.5820072, placeQuery: "Highgarden Hideaway - Peradeniya" },
       highlights: ["4 bedrooms", "Garden-view | Veranda", "Breakfast on request", "5 min to Botanical Gardens"],
       gallery: {
